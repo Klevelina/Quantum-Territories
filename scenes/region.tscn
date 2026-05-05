@@ -2,27 +2,5 @@
 
 [ext_resource type="Script" uid="uid://bi5me6lhjwul8" path="res://scripts/Regions.cs" id="1_6hh2v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cem2y"]
-size = Vector2(120, 120)
-
 [node name="Region" type="Node2D" unique_id=759868872]
 script = ExtResource("1_6hh2v")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1423634049]
-custom_minimum_size = Vector2(120, 120)
-offset_right = 120.0
-offset_bottom = 120.0
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Area2D" type="Area2D" parent="." unique_id=255512633]
-position = Vector2(60, 60)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=784440136]
-shape = SubResource("RectangleShape2D_cem2y")
-
-[node name="Label" type="Label" parent="." unique_id=361807235]
-offset_right = 40.0
-offset_bottom = 23.0
-mouse_filter = 0
-metadata/_edit_use_anchors_ = true

@@ -11,162 +11,162 @@ Unlike traditional territory control games, ownership is not always immediate—
 
 Players must balance:
 
-    Aggressive expansion
+	Aggressive expansion
 
-    Strategic control
+	Strategic control
 
-    Global system stability
+	Global system stability
 
 Over-expansion and conflict can destabilize the system and lead to collective failure.
 🧠 Core Concept
 
-    Territories can be contested (uncertain ownership)
+	Territories can be contested (uncertain ownership)
 
-    Players take turns performing actions
+	Players take turns performing actions
 
-    A shared Stability system affects all players
+	A shared Stability system affects all players
 
-    If Stability collapses → everyone loses
+	If Stability collapses → everyone loses
 
 🌍 Thematic Focus
 
 The game explores:
 
-    Balancing competition with responsibility
+	Balancing competition with responsibility
 
 Players act as competing powers within a fragile system where:
 
-    Conflict reduces stability
+	Conflict reduces stability
 
-    Stability benefits everyone
+	Stability benefits everyone
 
-    Reckless play risks total collapse
+	Reckless play risks total collapse
 
 Social Good Integration
 
 The Stability system represents the health of the world:
 
-    ❌ Conflict and disputes → decrease stability
+	❌ Conflict and disputes → decrease stability
 
-    ✅ Stabilised regions → increase stability
+	✅ Stabilised regions → increase stability
 
-    ⚠️ Over-aggression → risks collapse
+	⚠️ Over-aggression → risks collapse
 
 ⚛️ Quantum Dimension
 
 The game uses a single core quantum concept:
 Superposition (Contested States)
 
-    Territories can exist in an uncertain state
+	Territories can exist in an uncertain state
 
-    Multiple players may have influence simultaneously
+	Multiple players may have influence simultaneously
 
 Collapse (Resolution)
 
 A territory becomes owned when:
 
-    One player gains a clear advantage
+	One player gains a clear advantage
 
-    A player performs a stabilise action
+	A player performs a stabilise action
 
-    Outcomes emerge from interaction over time—not randomness.
+	Outcomes emerge from interaction over time—not randomness.
 
 🎲 Game Mechanics
 🔄 Turn Structure
 
 Each player’s turn:
 
-    Perform 2 actions
+	Perform 2 actions
 
-    Pass turn to next player
+	Pass turn to next player
 
 After all players:
 
-    Contested regions resolve
+	Contested regions resolve
 
-    Stability is updated
+	Stability is updated
 
 🗺️ Region System
 
 Each region can be:
 
-    Owned → controlled by one player
+	Owned → controlled by one player
 
-    Contested → multiple players present
+	Contested → multiple players present
 
-    Neutral (optional starting state)
+	Neutral (optional starting state)
 
 Regions track:
 
-    Units per player
+	Units per player
 
-    Adjacent regions
+	Adjacent regions
 
 ⚙️ Player Actions
 ➤ Expand
 
-    Move units into adjacent region
+	Move units into adjacent region
 
-    Creates conflict if occupied
+	Creates conflict if occupied
 
 ➤ Reinforce
 
-    Add units to a controlled region
+	Add units to a controlled region
 
 ➤ Stabilise
 
-    Resolve a contested region in your favour
+	Resolve a contested region in your favour
 
-    Requires equal or greater force
+	Requires equal or greater force
 
 ⚖️ Resolution System
 
 At the end of each round:
 
-    Player with +2 unit advantage → gains control
+	Player with +2 unit advantage → gains control
 
-    Otherwise → region remains contested
+	Otherwise → region remains contested
 
 🌐 Stability System
 
 A shared global meter (e.g. 0–20)
 Decreases:
 
-    Number of contested regions
+	Number of contested regions
 
-    New conflicts created
+	New conflicts created
 
 Increases:
 
-    Successful stabilisation
+	Successful stabilisation
 
 ❗ Critical Rule:
 
-    If Stability reaches 0 → ALL players lose
+	If Stability reaches 0 → ALL players lose
 
 🚧 Constraints
 
-    Actions limited per turn
+	Actions limited per turn
 
-    Only adjacent regions can be targeted
+	Only adjacent regions can be targeted
 
-    Contested regions persist until resolved
+	Contested regions persist until resolved
 
-    Aggression increases instability
+	Aggression increases instability
 
 🤝 Player Interaction
 
 Interaction is strategic, not social deduction-based:
 
-    Territorial pressure
+	Territorial pressure
 
-    Conflict creation
+	Conflict creation
 
-    Timing stabilisation
+	Timing stabilisation
 
 Optional:
 
-    Light negotiation / alliances
+	Light negotiation / alliances
 
 🧭 Narrative / Setting
 
@@ -174,70 +174,70 @@ An abstract strategic environment representing competing forces within a fragile
 
 Visual focus:
 
-    Clear ownership states
+	Clear ownership states
 
-    Visible contested regions
+	Visible contested regions
 
-    Stability as a central system
+	Stability as a central system
 
 🏆 Win / Loss Conditions
 ✅ Win Condition
 
-    Control majority of regions (e.g. 4/6)
+	Control majority of regions (e.g. 4/6)
 
-    AND Stability > 0
+	AND Stability > 0
 
 ❌ Global Loss
 
-    Stability reaches 0 → everyone loses
+	Stability reaches 0 → everyone loses
 
 Possible Outcomes
 
-    Stable domination
+	Stable domination
 
-    Balanced tension
+	Balanced tension
 
-    System collapse
+	System collapse
 
 🛠️ Platform & Tools
 
-    Platform: PC / Web
+	Platform: PC / Web
 
-    Engine: Godot
+	Engine: Godot
 
 🚀 Development Scope
 Phase 1 – Prototype
 
-    6-region map
+	6-region map
 
-    Basic turn system
+	Basic turn system
 
-    Core actions (expand, reinforce, stabilise)
+	Core actions (expand, reinforce, stabilise)
 
-    Contested state logic
+	Contested state logic
 
-    Stability meter
+	Stability meter
 
-    Win/loss conditions
+	Win/loss conditions
 
 Phase 2 – Expansion
 
-    Improved UI
+	Improved UI
 
-    Visual feedback for contested regions
+	Visual feedback for contested regions
 
-    Gameplay balancing
+	Gameplay balancing
 
 Phase 3 – Polish
 
-    Animations
+	Animations
 
-    Clearer feedback systems
+	Clearer feedback systems
 
-    Optional multiplayer features
+	Optional multiplayer features
 
 📍 Project Goal
 
 Create a small, playable prototype that proves:
 
-    Uncertain control + shared system stability = meaningful strategic decisions
+	Uncertain control + shared system stability = meaningful strategic decisions

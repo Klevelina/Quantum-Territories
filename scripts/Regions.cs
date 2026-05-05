@@ -1,118 +1,80 @@
 using Godot;
 using System.Collections.Generic;
 
-public partial class Regions : Node2D
+public partial class Regions : Node
 {
-	public int Owner = -1; // -1 = none
-	public Dictionary<int, int> Units = new Dictionary<int, int>();
+	public int Owner = -1;
+
+	[Export] public int RegionIndex;
+
+	public Dictionary<int, int> Units = new Dictionary<int, int>()
+	{
+		{0, 0},
+		{1, 0}
+	};
+
 	public List<Regions> Neighbors = new List<Regions>();
 
+	public enum LandState { Empty, Farm, Unstable }
+	public LandState State = LandState.Empty;
+
 	public bool Contested = false;
-	
-	[Signal]
-	public delegate void RegionClickedEventHandler(Regions region);
+
+	[Export] public string RegionID;
+	[Export] public string[] NeighborIDs;
+
+	public List<Vector2I> Tiles = new List<Vector2I>();
 
 	public void AddUnit(int player)
 	{
-		Units[player] += 1;
+		Units[player]++;
 		UpdateState();
-		
-		UpdateVisual();                                                                      
-		UpdateLabel();
 	}
 
 	public void UpdateState()
 	{
-		int playersWithUnits = 0;
+		int p0 = Units[0];
+		int p1 = Units[1];
 
-		foreach (var kvp in Units)
+		if (p0 > 0 && p1 > 0)
 		{
-			if (kvp.Value > 0)
-				playersWithUnits++;
+			Contested = true;
+			Owner = -1;
+			State = LandState.Unstable;
 		}
-
-		Contested = playersWithUnits > 1;
-
-		if (!Contested)
+		else if (p0 > 0)
 		{
-			foreach (var kvp in Units)
-			{
-				if (kvp.Value > 0)
-					Owner = kvp.Key;
-			}
+			Owner = 0;
+			Contested = false;
 		}
-		
-		UpdateVisual();                                                                      
-		UpdateLabel();
-	}
-	
-	public void UpdateVisual()
-	{
-		var rect = GetNode<ColorRect>("ColorRect");
-
-		if (Contested)
-			rect.Color = new Color(1, 1, 0); // yellow
-		else if (Owner == 0)
-			rect.Color = new Color(0, 0.5f, 1); // blue
-		else if (Owner == 1)
-			rect.Color = new Color(1, 0.3f, 0.3f); // red
+		else if (p1 > 0)
+		{
+			Owner = 1;
+			Contested = false;
+		}
 		else
-			rect.Color = new Color(0.5f, 0.5f, 0.5f); // neutral
+		{
+			Owner = -1;
+			Contested = false;
+		}
 	}
-	
-	public void UpdateLabel()
+
+	// ✅ CORE FIX: use SOURCE ID instead of atlas coords
+	public void GenerateTilesFromMap(TileMapLayer regionLayer)
 	{
-		var label = GetNode<Label>("Label");
+		Tiles.Clear();
 
-		label.Text = $"P1: {Units[0]} | P2: {Units[1]}";
-	}
-	
-		public override void _Ready()
+		foreach (Vector2I cell in regionLayer.GetUsedCells())
 		{
-			GD.Print("Region ready");
+			Vector2I atlasCoords = regionLayer.GetCellAtlasCoords(cell);
 
-			Units[0] = 0;
-			Units[1] = 0;
-
-			GetNode<Area2D>("Area2D").InputEvent += OnInputEvent;
-			
-			var regions = GetTree().GetNodesInGroup("regions");
-
-			var r = new List<Regions>();
-			foreach (Regions reg in regions)
-				r.Add(reg);
-
-			// example layout (grid-like)
-			r[0].Neighbors.AddRange(new[] { r[1], r[5] });
-			r[1].Neighbors.AddRange(new[] { r[0], r[2], r[4] });
-			r[2].Neighbors.AddRange(new[] { r[1], r[3] });
-			r[3].Neighbors.AddRange(new[] { r[2], r[4] });
-			r[4].Neighbors.AddRange(new[] { r[1], r[3], r[5] });
-			r[5].Neighbors.AddRange(new[] { r[0], r[4] });
-
-			UpdateVisual();
-			UpdateLabel();
-		}
-		
-		public void Highlight(bool on)
-		{
-			var rect = GetNode<ColorRect>("ColorRect");
-
-			if (on)
-				rect.Modulate = new Color(0.5f, 1f, 0.5f); // green tint
-			else
-				rect.Modulate = new Color(1, 1, 1); // normal
-		}
-
-		private void OnInputEvent(Node viewport, InputEvent @event, long shapeIdx)
-		{
-			if (@event is InputEventMouseButton mouseEvent)
+			// Use X as region index (tile position in atlas)
+			if (atlasCoords.X == RegionIndex)
 			{
-				if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
-				{
-					GD.Print("Region Clicked");
-					EmitSignal(SignalName.RegionClicked, this);
-				}
+				Tiles.Add(cell);
 			}
 		}
+
+		GD.Print($"{RegionID} -> {Tiles.Count} tiles");
+	}
 }

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b8gfscpsujaem"]
+
+[ext_resource type="Script" uid="uid://bqf3siblrb8jg" path="res://scripts/ControlPoint.cs" id="1_v3bly"]
+[ext_resource type="Texture2D" uid="uid://bwepydy6mfg7r" path="res://Artwork/ControlPoint.png" id="2_5vgbg"]
+[ext_resource type="Texture2D" uid="uid://btb3vvds74dle" path="res://Artwork/ControlPointBase.png" id="2_poe07"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vgbg"]
+radius = 14.0
+
+[node name="ControlPoint" type="Area2D" unique_id=2020814538]
+script = ExtResource("1_v3bly")
+
+[node name="Strength" type="Label" parent="." unique_id=565700257]
+z_index = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Value" type="Label" parent="." unique_id=967381749]
+visible = false
+z_index = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 3.0
+offset_right = 72.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1143786896]
+texture = ExtResource("2_poe07")
+
+[node name="Highlight" type="Sprite2D" parent="." unique_id=1406139237]
+visible = false
+z_index = 1
+texture = ExtResource("2_5vgbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=750183389]
+shape = SubResource("CircleShape2D_5vgbg")
