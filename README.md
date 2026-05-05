@@ -1,243 +1,68 @@
-🎮 Quantum Territories
+🌾 Quantum Agriculture: Sustainable Territories
+Developers: Evelīna Šadurska & Klints Legranžs
 
-Developers:
-Evelīna Šadurska & Klints Legranžs
+Platform: PC / Web (Godot Engine)
 
-📌 Overview
+📌 Project Overview
+Quantum Agriculture is a turn-based strategy game inspired by "Risk," where players compete to cultivate teritories. 
 
-Quantum Territories is a digital turn-based strategy game where players compete to control regions while managing instability caused by conflict.
+Players must balance aggressive expansion with environmental responsibility. Over-farming and constant territorial disputes can destabilize the ecosystem, leading to a "Quantum Collapse" where fertile land turns into a permanent wasteland.
 
-Unlike traditional territory control games, ownership is not always immediate—regions can exist in uncertain, contested states before resolving.
+🧠 Core Concept: The Quantum Dimension
+The game utilizes core quantum mechanics to represent environmental health:
 
-Players must balance:
+Superposition (Contested States): Unclaimed or disputed territories exist in a state of potential. They are neither "thriving" nor "dead" until a player’s actions collapse the state.
 
-    Aggressive expansion
+Wavefunction Collapse (Resolution): When a territory is captured or a turn ends, the "Quantum State" resolves. Depending on resource investment and stability, the land resolves into one of two outcomes:
 
-    Strategic control
+✅ Social Good: A thriving Farm (Cows, Crops, Infrastructure).
 
-    Global system stability
+❌ Quantum Collapse: A permanent Wasteland (Destroyed Dirt) that neither player can use.
 
-Over-expansion and conflict can destabilize the system and lead to collective failure.
-🧠 Core Concept
+🌍 Thematic Focus & Social Good
+The game serves as a metaphor for Environmental Stewardship:
 
-    Territories can be contested (uncertain ownership)
+Conflict & Over-extraction: Multiple players fighting for the same tile reduces "Global Stability."
 
-    Players take turns performing actions
+Sustainable Cultivation: Successfully stabilizing a region into a farm increases the world's health.
 
-    A shared Stability system affects all players
-
-    If Stability collapses → everyone loses
-
-🌍 Thematic Focus
-
-The game explores:
-
-    Balancing competition with responsibility
-
-Players act as competing powers within a fragile system where:
-
-    Conflict reduces stability
-
-    Stability benefits everyone
-
-    Reckless play risks total collapse
-
-Social Good Integration
-
-The Stability system represents the health of the world:
-
-    ❌ Conflict and disputes → decrease stability
-
-    ✅ Stabilised regions → increase stability
-
-    ⚠️ Over-aggression → risks collapse
-
-⚛️ Quantum Dimension
-
-The game uses a single core quantum concept:
-Superposition (Contested States)
-
-    Territories can exist in an uncertain state
-
-    Multiple players may have influence simultaneously
-
-Collapse (Resolution)
-
-A territory becomes owned when:
-
-    One player gains a clear advantage
-
-    A player performs a stabilise action
-
-    Outcomes emerge from interaction over time—not randomness.
+Systemic Failure: If the Global Stability meter reaches zero, the entire archipelago collapses, and all players lose.
 
 🎲 Game Mechanics
 🔄 Turn Structure
 
-Each player’s turn:
+Allocation: Players place resources to expand into adjacent islands or reinforce existing farms.
 
-    Perform 2 actions
+Observation: At the end of the round, contested regions "collapse" their quantum state.
 
-    Pass turn to next player
-
-After all players:
-
-    Contested regions resolve
-
-    Stability is updated
-
-🗺️ Region System
-
-Each region can be:
-
-    Owned → controlled by one player
-
-    Contested → multiple players present
-
-    Neutral (optional starting state)
-
-Regions track:
-
-    Units per player
-
-    Adjacent regions
+Stability Check: The Global Stability meter is updated based on the number of farms vs. the amount of conflict.
 
 ⚙️ Player Actions
-➤ Expand
 
-    Move units into adjacent region
+Cultivate (Expand): Move into an adjacent neutral or contested region.
 
-    Creates conflict if occupied
+Reinforce: Strengthen the "Social Good" of a controlled farm to prevent collapse.
 
-➤ Reinforce
+Stabilize: Spend extra resources to ensure a contested region resolves as a Farm rather than a Wasteland.
 
-    Add units to a controlled region
+⚖️ Resolution & Stability System
 
-➤ Stabilise
+The 50/50 Risk: If a region is highly contested, it has a high probability of Quantum Collapse, replacing the grass and farm layers with Destroyed Dirt.
 
-    Resolve a contested region in your favour
+Global Loss: If players are too aggressive, the Stability Meter (0–20) hits 0, triggering a "Total System Collapse."
 
-    Requires equal or greater force
+🛠️ Technical Implementation (Godot)
+We have developed a custom engine logic to handle these transitions:
 
-⚖️ Resolution System
+Memory-Reveal System: We use a "Blueprint" logic where hand-drawn agricultural layouts (Fences, Livestock, Crops) are stored in memory and only revealed when the territory state resolves to "Social Good."
 
-At the end of each round:
+Metadata Mapping: Using Godot’s Custom Data Layers, we have tagged every tile with a territory_id to synchronize the Grass, Farm, and Dirt layers.
 
-    Player with +2 unit advantage → gains control
+Probabilistic State Engine: A GDScript-based randomizer handles the "Quantum Collapse" logic based on player resource input.
 
-    Otherwise → region remains contested
+🚀 Development Roadmap
+Phase 1 (Current): Prototype 6-region map with working "Reveal/Collapse" logic and Stability Meter.
 
-🌐 Stability System
+Phase 2: Visual feedback for "Unstable" regions (shaking or color shifting) and improved UI.
 
-A shared global meter (e.g. 0–20)
-Decreases:
-
-    Number of contested regions
-
-    New conflicts created
-
-Increases:
-
-    Successful stabilisation
-
-❗ Critical Rule:
-
-    If Stability reaches 0 → ALL players lose
-
-🚧 Constraints
-
-    Actions limited per turn
-
-    Only adjacent regions can be targeted
-
-    Contested regions persist until resolved
-
-    Aggression increases instability
-
-🤝 Player Interaction
-
-Interaction is strategic, not social deduction-based:
-
-    Territorial pressure
-
-    Conflict creation
-
-    Timing stabilisation
-
-Optional:
-
-    Light negotiation / alliances
-
-🧭 Narrative / Setting
-
-An abstract strategic environment representing competing forces within a fragile global system.
-
-Visual focus:
-
-    Clear ownership states
-
-    Visible contested regions
-
-    Stability as a central system
-
-🏆 Win / Loss Conditions
-✅ Win Condition
-
-    Control majority of regions (e.g. 4/6)
-
-    AND Stability > 0
-
-❌ Global Loss
-
-    Stability reaches 0 → everyone loses
-
-Possible Outcomes
-
-    Stable domination
-
-    Balanced tension
-
-    System collapse
-
-🛠️ Platform & Tools
-
-    Platform: PC / Web
-
-    Engine: Godot
-
-🚀 Development Scope
-Phase 1 – Prototype
-
-    6-region map
-
-    Basic turn system
-
-    Core actions (expand, reinforce, stabilise)
-
-    Contested state logic
-
-    Stability meter
-
-    Win/loss conditions
-
-Phase 2 – Expansion
-
-    Improved UI
-
-    Visual feedback for contested regions
-
-    Gameplay balancing
-
-Phase 3 – Polish
-
-    Animations
-
-    Clearer feedback systems
-
-    Optional multiplayer features
-
-📍 Project Goal
-
-Create a small, playable prototype that proves:
-
-    Uncertain control + shared system stability = meaningful strategic decisions
+Phase 3: Balancing the "Risk vs. Reward" for environmental stability and adding agricultural animations.
