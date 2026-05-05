@@ -61,6 +61,7 @@ Metadata Mapping: Using Godot’s Custom Data Layers, we have tagged every tile 
 Probabilistic State Engine: A GDScript-based randomizer handles the "Quantum Collapse" logic based on player resource input.
 
 🚀 Development Roadmap
+
 Phase 1 (Current): Prototype 6-region map with working "Reveal/Collapse" logic and Stability Meter.
 
 Phase 2: Visual feedback for "Unstable" regions (shaking or color shifting) and improved UI.
